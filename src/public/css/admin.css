@@ -20,6 +20,13 @@
     margin-bottom: 30px;
 }
 
+.admin-operation {
+    display: flex;
+    justify-content: space-between; /* 左右に分ける */
+    align-items: center; /* 高さを中央揃え */
+    margin-bottom: 1rem;
+}
+
 .admin-table {
     margin-top: 30px;
     border: 1px solid #f5f4f4;
@@ -47,6 +54,10 @@
     outline: none;
     border: none;
     font-size: 16px;
+}
+
+.admin-table__text:hover {
+    background-color: #f0f0f0;
 }
 
 .admin-table__row:last-child .admin-table__header,
@@ -134,4 +145,51 @@ input[type="text"] {
     cursor: pointer;
     background-color: #fff;
     color: #8c7a6a;
+}
+
+/* ページ番号全体 */
+.pagination {
+    display: flex; /* 横並びにする */
+    justify-content: flex-end;
+    list-style: none; /* デフォルトのリストマーカーを消す */
+    padding: 0;
+    margin: 0;
+}
+
+.pagination li {
+    display: inline-block; /* 横並びにする */
+}
+
+.pagination li a,
+.pagination li span {
+    display: inline-block; /* 横幅を確保 */
+    padding: 0.5rem 0.8rem;
+    border: 1px solid #82756b;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #8c7a6a;
+    text-align: center; /* 数字を中央に */
+    min-width: 32px; /* 横幅をそろえる */
+    transition: all 0.2s;
+}
+
+/* ホバー時 */
+.pagination a:hover {
+    background-color: #f0f0f0;
+    border-color: #999;
+}
+
+/* 現在のページ */
+.pagination li span {
+    background-color: #82756b;
+    color: #fff;
+    border-color: #82756b;
+    border-radius: 6px;
+}
+
+.pagination li.disabled span {
+    background-color: #fff;
+    color: #8c7a6a !important;
+    border: 1px solid #82756b;
+    cursor: not-allowed;
 }

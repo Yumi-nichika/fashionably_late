@@ -49,9 +49,11 @@
             <a class="button-reset" href="/admin">リセット</a>
         </div>
 
-        <button class="button-export">エクスポート</button>
+        <div class="admin-operation">
+            <button class="button-export">エクスポート</button>
+            {{ $contacts->links() }}
+        </div>
 
-        {{ $contacts->links() }}
 
         <div class="admin-table">
             <table class="admin-table__inner">
