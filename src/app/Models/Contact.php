@@ -12,7 +12,7 @@ class Contact extends Model
     protected $fillable = ['category_id', 'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'detail'];
 
     //categriesテーブルのデータを参照
-    public function categry()
+    public function category()
     {
         return $this->belongsTo('App\Models\Category');
     }

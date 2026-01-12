@@ -2,12 +2,46 @@
     border-bottom: 1px solid #f5f5f4;
 }
 .header__inner {
-  margin: 0 auto;
-  max-width: 1230px;
+    margin: 0 auto;
+    max-width: 1230px;
 }
 
 .header__title {
-  color: #8c7a6a;
-  font-size: 24px;
-  text-align: center;
+    color: #8c7a6a;
+    font-size: 24px;
+    text-align: center;
+}
+
+.adminHeader__inner {
+    display: flex;
+    align-items: center;
+    position: relative; /* 中央配置用 */
+    height: 60px; /* 必要に応じて */
+}
+
+.adminHeader__title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    color: #8c7a6a;
+    font-size: 24px;
+}
+
+.adminHeader__button {
+    margin-left: auto;
+    margin-right: 10%;
+    text-decoration: none;
+    text-align: center;
+}
+
+.link {
+    width: 80px;
+    height: 30px;
+    border: 1px solid #8c7a6a;
+    border-radius: 3px;
+    background: #f4f4f4;
+    color: #8c7a6a;
+    cursor: pointer;
+    text-decoration: none;
 }
