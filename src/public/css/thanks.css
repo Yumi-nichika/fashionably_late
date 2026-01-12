@@ -1,0 +1,58 @@
+.contact-form {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+    color: #8c7a6a;
+}
+
+.form {
+    position: relative;
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+}
+
+.thankyou__bg {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 120px;
+    font-weight: bold;
+    opacity: 0.08; /* 背景っぽく */
+    z-index: 0;
+    pointer-events: none; /* クリック邪魔しない */
+}
+
+.thankyou__text {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    font-weight: bold;
+}
+
+.form__button {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    margin-top: 100px;
+}
+
+.form__button-submit {
+    padding: 10px;
+    width: 10%;
+    height: 45px;
+    border: none;
+    border-radius: 3px;
+    background: #82756b;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}

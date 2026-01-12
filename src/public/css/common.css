@@ -1,0 +1,13 @@
+.header {
+    border-bottom: 1px solid #f5f5f4;
+}
+.header__inner {
+  margin: 0 auto;
+  max-width: 1230px;
+}
+
+.header__title {
+  color: #8c7a6a;
+  font-size: 24px;
+  text-align: center;
+}
