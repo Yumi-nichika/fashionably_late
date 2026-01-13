@@ -1,4 +1,4 @@
-@extends('layouts.adcom')
+@extends('layouts.admin_common')
 
 @section('title')
 管理画面
@@ -25,32 +25,40 @@
 
     <div class="admin-form">
         <div class="admin-search">
-            <input type="text" name="free" placeholder="名前やメールアドレスを入力してください">
-            <div class="form__input--select">
-                <select name="gendar">
-                    <option value="">性別</option>
-                    <option value="1">男性</option>
-                    <option value="2">女性</option>
-                    <option value="3">その他</option>
-                </select>
-            </div>
-            <div class="form__input--select">
-                <select name="category_id">
-                    <option value="">お問い合わせの種類</option>
-                    @foreach($categories as $category)
-                    <option value="{{ $category['id'] }}" {{ (old('category_id', request('category_id')) == $category->id) ? 'selected' : '' }}>
-                        {{ $category['content'] }}
-                    </option>
-                    @endforeach
-                </select>
-            </div>
-            <input type="date" name="created_at">
-            <button class="button-search">検索</button>
-            <a class="button-reset" href="/reset">リセット</a>
+            <form action="/search" method="GET">
+                @csrf
+                <input type="text" name="free" placeholder="名前やメールアドレスを入力してください" value="{{ request('free') }}">
+                <div class="form__input--select">
+                    <select name="gender">
+                        <option value="">性別</option>
+                        <option value="1" {{ request('gender') == '1' ? 'selected' : '' }}>男性</option>
+                        <option value="2" {{ request('gender') == '2' ? 'selected' : '' }}>女性</option>
+                        <option value="3" {{ request('gender') == '3' ? 'selected' : '' }}>その他</option>
+                    </select>
+                </div>
+                <div class="form__input--select">
+                    <select name="category_id">
+                        <option value="">お問い合わせの種類</option>
+                        @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
+                            {{ $category->content }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form__input--date">
+                    <input type="date" name="created_at" value="{{ request('created_at') }}">
+                    <span class="date-select__arrow">▼</span>
+                </div>
+                <button type="submit" class="button button-search">検索</button>
+            </form>
+            <a class="button button-reset" href="/reset">リセット</a>
         </div>
 
         <div class="admin-operation">
-            <button class="button-export">エクスポート</button>
+            <a href="{{ route('export', request()->query()) }}" class="button button-export">
+                エクスポート
+            </a>
             {{ $contacts->links() }}
         </div>
 
@@ -74,6 +82,7 @@
                     <td class="admin-table__text">{{ $contact['category']['content'] }}</td>
                     <td class="admin-table__text">
                         <button type="button" class="button-detail"
+                            data-id="{{ $contact['id'] }}"
                             data-name="{{ $contact['last_name'] }} {{ $contact['first_name'] }}"
                             data-gender="{{ config('gender')[$contact['gender']] }}"
                             data-email="{{ $contact['email'] }}"
@@ -147,7 +156,9 @@
             </div>
         </div>
         <div class="button-delete">
-            <form>
+            <form action="/delete" method="POST">
+                @csrf
+                <input type="hidden" id="id" name="id" value="">
                 <button type="submit">削除</button>
             </form>
         </div>
@@ -161,6 +172,7 @@
         const modal = document.getElementById('detailModal');
         const closeBtn = document.getElementById('closeModal');
 
+        const Id = document.getElementById('id');
         const modalName = document.getElementById('modalName');
         const modalGender = document.getElementById('modalGender');
         const modalEmail = document.getElementById('modalEmail');
@@ -174,6 +186,7 @@
         document.querySelectorAll('.button-detail').forEach(button => {
             button.addEventListener('click', function() {
                 // データをモーダルにセット
+                Id.value = this.dataset.id;
                 modalName.textContent = this.dataset.name;
                 modalGender.textContent = this.dataset.gender;
                 modalEmail.textContent = this.dataset.email;
@@ -191,13 +204,6 @@
         // ×ボタンで閉じる
         closeBtn.addEventListener('click', function() {
             modal.style.display = 'none';
-        });
-
-        // モーダル外クリックで閉じる
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
         });
     });
 </script>

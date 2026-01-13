@@ -16,14 +16,20 @@
 
 .admin-search {
     display: flex;
-    gap: 30px;
+    gap: 12px;
     margin-bottom: 30px;
+}
+
+.admin-search form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .admin-operation {
     display: flex;
-    justify-content: space-between; /* 左右に分ける */
-    align-items: center; /* 高さを中央揃え */
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 1rem;
 }
 
@@ -67,40 +73,63 @@
 
 .form__input--select {
     position: relative;
-    display: inline-block; /* 幅を中身に合わせる */
-    min-width: 100px; /* 最小幅 */
-    max-width: 400px; /* 最大幅 */
+    text-align: left;
 }
 
 .form__input--select::after {
     content: "▼";
     position: absolute;
-    right: 10px;
+    right: 8px;
     top: 50%;
     transform: translateY(-50%);
     color: #8c7a6a;
     font-size: 12px;
-    pointer-events: none;
 }
 
 .form__input--select select {
-    width: auto; /* 中身に合わせる */
-    min-width: 100%; /* 親幅より狭くならない */
-    height: 50px; /* 他のinputと揃える */
-    padding: 0 30px 0 10px; /* 右に三角の余白 */
+    padding: 10px;
     background-color: #f4f4f4;
     border: 1px solid #f4f4f4;
     border-radius: 3px;
     color: #8c7a6a;
-    line-height: 1.5;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    box-sizing: border-box;
 }
 
-input[type="text"],
-input[type="date"] {
+.form__input--date {
+    position: relative;
+    display: inline-block;
+}
+
+.form__input--date input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 28px;
+    padding: 10px;
+    width: 200px;
+    background-color: #f4f4f4;
+    border: 1px solid #f4f4f4;
+    border-radius: 3px;
+    appearance: none;
+    color: #8c7a6a;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
+.date-select__arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 12px;
+    color: #8c7a6a;
+}
+
+input[type="text"] {
     padding: 10px;
     width: 300px;
     background-color: #f4f4f4;
@@ -110,39 +139,33 @@ input[type="date"] {
     color: #8c7a6a;
 }
 
-.button-search {
-    padding: 10px;
+.button {
     width: 100px;
     height: 50px;
-    border: none;
+    font-size: 14px;
+    line-height: 1;
     border-radius: 3px;
     cursor: pointer;
-    background: #82756b;
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-search {
+    background: #82756b;
+    border: none;
 }
 
 .button-reset {
-    padding: 10px;
-    width: 100px;
-    height: 50px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
     background: #d9c6b5;
-    color: #fff;
-    text-align: center;
     text-decoration: none;
 }
 
 .button-export {
-    padding: 10px;
-    width: 100px;
-    height: 50px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
     background: #edeae6;
-    color: #c0b6ac;
+    color: #82756b;
+    text-decoration: none;
 }
 
 .button-detail {
@@ -156,38 +179,35 @@ input[type="date"] {
     color: #8c7a6a;
 }
 
-/* ページ番号全体 */
 .pagination {
-    display: flex; /* 横並びにする */
+    display: flex;
     justify-content: flex-end;
-    list-style: none; /* デフォルトのリストマーカーを消す */
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .pagination li {
-    display: inline-block; /* 横並びにする */
+    display: inline-block;
 }
 
 .pagination li a,
 .pagination li span {
-    display: inline-block; /* 横幅を確保 */
+    display: inline-block;
     padding: 0.5rem 0.8rem;
     border: 1px solid #82756b;
     text-decoration: none;
     color: #8c7a6a;
-    text-align: center; /* 数字を中央に */
-    min-width: 32px; /* 横幅をそろえる */
+    text-align: center;
+    min-width: 32px;
     transition: all 0.2s;
 }
 
-/* ホバー時 */
 .pagination a:hover {
     background-color: #f0f0f0;
     border-color: #999;
 }
 
-/* 現在のページ */
 .pagination li span {
     background-color: #82756b;
     color: #fff;
@@ -209,9 +229,9 @@ input[type="date"] {
     width: 100%;
     height: 100%;
     z-index: 1000;
-    justify-content: center; /* 横中央 */
-    align-items: center; /* 縦中央 */
-    overflow: auto; /* 画面より大きい場合スクロール可能 */
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
     color: #82756b;
 }
 
@@ -219,11 +239,11 @@ input[type="date"] {
     background-color: #fff;
     padding: 20px;
     border: 1px solid #82756b;
-    width: 50%; /* 横幅は狭くして縦長に見せる */
-    max-width: 600px; /* 最大幅を制限 */
-    min-height: 60vh; /* 画面縦の60%以上にする */
-    max-height: 90vh; /* 高さは画面の90%まで */
-    overflow-y: auto; /* 内容が長い場合スクロール */
+    width: 50%;
+    max-width: 600px;
+    min-height: 60vh;
+    max-height: 90vh;
+    overflow-y: auto;
     position: relative;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
@@ -235,12 +255,20 @@ input[type="date"] {
 
 .form__group {
     display: flex;
+    align-items: flex-start;
     margin-bottom: 10px;
 }
 
 .form__group-title {
     width: 40%;
+    min-width: 40%;
+    flex-shrink: 0;
     font-weight: bold;
+}
+
+#modalContent {
+    margin: 0;
+    white-space: pre-wrap;
 }
 
 #closeModal {
@@ -250,13 +278,13 @@ input[type="date"] {
     font-size: 16px;
     width: 30px;
     height: 30px;
-    line-height: 30px; /* 縦中央に配置 */
-    text-align: center; /* 横中央に配置 */
-    border-radius: 50%; /* 丸にする */
-    background-color: #fff; /* 好きな背景色 */
-    border: 1px solid #82756b; /* 薄い枠線 */
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #82756b;
     cursor: pointer;
-    font-weight: bold; /* ×を太くする */
+    font-weight: bold;
     color: #82756b;
 }
 

@@ -1,4 +1,4 @@
-@extends('layouts.adcom')
+@extends('layouts.admin_common')
 
 @section('title')
 ログイン

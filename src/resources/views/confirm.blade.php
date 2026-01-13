@@ -1,4 +1,4 @@
-@extends('layouts.contact')
+@extends('layouts.contact_common')
 
 @section('title')
 お問い合わせフォーム確認ページ
