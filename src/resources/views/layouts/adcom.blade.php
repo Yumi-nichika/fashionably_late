@@ -20,6 +20,7 @@
     <main>
         @yield('main')
     </main>
+    @yield('js')
 </body>
 
 </html>
