@@ -50,7 +50,7 @@ DB_PASSWORD=laravel_pass
 下記「URL」にアクセスし、正常に表示されれば完了です。
 
 # 使用技術（実行環境）
-- PHP 8.5.0
+- PHP 8.1.34
 - Laravel 8.83.29
 - mysql 8.0.26
 - nginx 1.21.1
