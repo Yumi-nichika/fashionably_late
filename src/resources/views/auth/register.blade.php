@@ -20,7 +20,7 @@
         Register
     </div>
     <div class="register-form">
-        <form class="form" action="/register" method="post">
+        <form class="form" action="/register" method="post" novalidate>
             @csrf
             <div class="form__group">
                 <div class="form__group-title">

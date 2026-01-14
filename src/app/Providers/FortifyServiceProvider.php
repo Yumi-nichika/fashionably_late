@@ -23,7 +23,7 @@ class FortifyServiceProvider extends ServiceProvider
                 'password' => ['required'],
             ]);
 
-            if (! Auth::attempt(
+            if (!Auth::attempt(
                 $request->only('email', 'password'),
                 $request->boolean('remember')
             )) {
