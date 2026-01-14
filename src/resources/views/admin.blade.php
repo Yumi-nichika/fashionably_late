@@ -65,37 +65,41 @@
 
         <div class="admin-table">
             <table class="admin-table__inner">
-                <tr class="admin-table__row">
-                    <th class="admin-table__header">お名前</th>
-                    <th class="admin-table__header" style="width: 10%;">性別</th>
-                    <th class="admin-table__header">メールアドレス</th>
-                    <th class="admin-table__header">お問い合わせの種類</th>
-                    <th class="admin-table__header"></th>
-                </tr>
-                @foreach($contacts as $contact)
-                <tr class="admin-table__row">
-                    <td class="admin-table__text">
-                        {{ $contact['last_name'] }}　{{ $contact['first_name'] }}
-                    </td>
-                    <td class="admin-table__text">{{ config('gender')[$contact['gender']] }}</td>
-                    <td class="admin-table__text">{{ $contact['email'] }}</td>
-                    <td class="admin-table__text">{{ $contact['category']['content'] }}</td>
-                    <td class="admin-table__text">
-                        <button type="button" class="button-detail"
-                            data-id="{{ $contact['id'] }}"
-                            data-name="{{ $contact['last_name'] }} {{ $contact['first_name'] }}"
-                            data-gender="{{ config('gender')[$contact['gender']] }}"
-                            data-email="{{ $contact['email'] }}"
-                            data-tel="{{ $contact['tel'] }}"
-                            data-address="{{ $contact['address'] }}"
-                            data-building="{{ $contact['building'] }}"
-                            data-category="{{ $contact['category']['content'] }}"
-                            data-content="{{ $contact['detail'] ?? '' }}">
-                            詳細
-                        </button>
-                    </td>
-                </tr>
-                @endforeach
+                <thead>
+                    <tr class="admin-table__row">
+                        <th class="admin-table__header">お名前</th>
+                        <th class="admin-table__header" style="width: 10%;">性別</th>
+                        <th class="admin-table__header">メールアドレス</th>
+                        <th class="admin-table__header">お問い合わせの種類</th>
+                        <th class="admin-table__header"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($contacts as $contact)
+                    <tr class="admin-table__row">
+                        <td class="admin-table__text">
+                            {{ $contact['last_name'] }}　{{ $contact['first_name'] }}
+                        </td>
+                        <td class="admin-table__text">{{ config('gender')[$contact['gender']] }}</td>
+                        <td class="admin-table__text">{{ $contact['email'] }}</td>
+                        <td class="admin-table__text">{{ $contact['category']['content'] }}</td>
+                        <td class="admin-table__text">
+                            <button type="button" class="button-detail"
+                                data-id="{{ $contact['id'] }}"
+                                data-name="{{ $contact['last_name'] }} {{ $contact['first_name'] }}"
+                                data-gender="{{ config('gender')[$contact['gender']] }}"
+                                data-email="{{ $contact['email'] }}"
+                                data-tel="{{ $contact['tel'] }}"
+                                data-address="{{ $contact['address'] }}"
+                                data-building="{{ $contact['building'] }}"
+                                data-category="{{ $contact['category']['content'] }}"
+                                data-content="{{ $contact['detail'] ?? '' }}">
+                                詳細
+                            </button>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
     </div>

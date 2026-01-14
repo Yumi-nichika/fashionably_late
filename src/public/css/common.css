@@ -15,8 +15,8 @@
 .adminHeader__inner {
     display: flex;
     align-items: center;
-    position: relative; /* 中央配置用 */
-    height: 60px; /* 必要に応じて */
+    position: relative;
+    height: 60px;
 }
 
 .adminHeader__title {

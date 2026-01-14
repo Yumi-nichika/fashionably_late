@@ -62,8 +62,8 @@
     font-size: 16px;
 }
 
-.admin-table__text:hover {
-    background-color: #f0f0f0;
+.admin-table__inner tbody tr:hover {
+    background-color: #f4f4f4;
 }
 
 .admin-table__row:last-child .admin-table__header,
@@ -204,7 +204,7 @@ input[type="text"] {
 }
 
 .pagination a:hover {
-    background-color: #f0f0f0;
+    background-color: #f4f4f4;
     border-color: #999;
 }
 
