@@ -11,7 +11,7 @@
 @section('button')
 <form method="POST" action="/logout">
     @csrf
-    <button type="submit" class="link">
+    <button type="submit" class="button">
         logout
     </button>
 </form>
@@ -67,11 +67,11 @@
             <table class="admin-table__inner">
                 <thead>
                     <tr class="admin-table__row">
-                        <th class="admin-table__header">お名前</th>
-                        <th class="admin-table__header" style="width: 10%;">性別</th>
-                        <th class="admin-table__header">メールアドレス</th>
-                        <th class="admin-table__header">お問い合わせの種類</th>
-                        <th class="admin-table__header"></th>
+                        <th>お名前</th>
+                        <th>性別</th>
+                        <th>メールアドレス</th>
+                        <th>お問い合わせの種類</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,16 +84,7 @@
                         <td class="admin-table__text">{{ $contact['email'] }}</td>
                         <td class="admin-table__text">{{ $contact['category']['content'] }}</td>
                         <td class="admin-table__text">
-                            <button type="button" class="button-detail"
-                                data-id="{{ $contact['id'] }}"
-                                data-name="{{ $contact['last_name'] }} {{ $contact['first_name'] }}"
-                                data-gender="{{ config('gender')[$contact['gender']] }}"
-                                data-email="{{ $contact['email'] }}"
-                                data-tel="{{ $contact['tel'] }}"
-                                data-address="{{ $contact['address'] }}"
-                                data-building="{{ $contact['building'] }}"
-                                data-category="{{ $contact['category']['content'] }}"
-                                data-content="{{ $contact['detail'] ?? '' }}">
+                            <button type="button" class="button button-detail" data-contact='@json($contact)'>
                                 詳細
                             </button>
                         </td>
@@ -159,11 +150,11 @@
                 <p id="modalContent" style="white-space: pre-wrap;"></p>
             </div>
         </div>
-        <div class="button-delete">
+        <div class="form__button">
             <form action="/delete" method="POST">
                 @csrf
                 <input type="hidden" id="id" name="id" value="">
-                <button type="submit">削除</button>
+                <button type="submit" class="button form__button-delete">削除</button>
             </form>
         </div>
     </div>
@@ -189,18 +180,19 @@
         // 「詳細」ボタンをすべて取得
         document.querySelectorAll('.button-detail').forEach(button => {
             button.addEventListener('click', function() {
-                // データをモーダルにセット
-                Id.value = this.dataset.id;
-                modalName.textContent = this.dataset.name;
-                modalGender.textContent = this.dataset.gender;
-                modalEmail.textContent = this.dataset.email;
-                modalTel.textContent = this.dataset.tel;
-                modalAddress.textContent = this.dataset.address;
-                modalBuilding.textContent = this.dataset.building;
-                modalCategory.textContent = this.dataset.category;
-                modalContent.textContent = this.dataset.content;
+                const contact = JSON.parse(this.dataset.contact);
 
-                // モーダルを表示
+                Id.value = contact.id;
+                modalName.textContent = `${contact.last_name} ${contact.first_name}`;
+                modalGender.textContent = @json(config('gender'))[contact.gender];
+                modalEmail.textContent = contact.email;
+                modalTel.textContent = contact.tel;
+                modalAddress.textContent = contact.address;
+                modalBuilding.textContent = contact.building ?? '';
+                modalCategory.textContent = contact.category.content;
+                modalContent.textContent = contact.detail ?? '';
+
+                //モーダル表示
                 modal.style.display = 'flex';
             });
         });

@@ -12,9 +12,9 @@
 
 <body>
     <header class="header">
-        <div class="adminHeader__inner">
-            <p class="adminHeader__title">FashionablyLate</p>
-            <div class="adminHeader__button">@yield('button')</div>
+        <div class="header__inner">
+            <p class="header__title">FashionablyLate</p>
+            <div class="header__button">@yield('button')</div>
         </div>
     </header>
     <main>

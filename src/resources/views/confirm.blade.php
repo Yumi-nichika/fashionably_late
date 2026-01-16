@@ -20,10 +20,7 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お名前</th>
                     <td class="confirm-table__text">
-                        <div class="confirm-table__texts">
-                            <input type="text" value="{{ $contact['last_name'] }}" readonly />
-                            <input type="text" value="{{ $contact['first_name'] }}" readonly />
-                        </div>
+                        <input type="text" value="{{ $contact['last_name'] }}　{{ $contact['first_name'] }}" readonly />
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
@@ -76,13 +73,13 @@
                 @foreach($contact as $key => $value)
                 <input type="hidden" name="{{ $key }}" value="{{ $value }}">
                 @endforeach
-                <button class="form__button-submit" type="submit">送信</button>
+                <button class="button form__button-submit" type="submit">送信</button>
             </form>
             <form action="/" method="get">
                 @foreach($contact as $key => $value)
                 <input type="hidden" name="{{ $key }}" value="{{ $value }}">
                 @endforeach
-                <button class="form__button-back" type="submit">修正</button>
+                <button class="button form__button-back" type="submit">修正</button>
             </form>
         </div>
     </div>

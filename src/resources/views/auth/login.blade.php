@@ -13,7 +13,7 @@
 @endsection
 
 @section('button')
-<a type="submit" class="link" href="/register">
+<a type="submit" class="button" href="/register">
     register
 </a>
 @endsection
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="form__button">
-                <button class="form__button-submit" type="submit">ログイン</button>
+                <button class="button form__button-submit" type="submit">ログイン</button>
             </div>
         </form>
     </div>

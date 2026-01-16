@@ -1,47 +1,54 @@
-.header {
-    border-bottom: 1px solid #f5f5f4;
+/* カラー */
+:root {
+    --main_color: #8c7a6a;
+    --sub_color_brown: #82756b;
+    --sub_color_white: #f4f4f4;
 }
+
+/* ボタン */
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.header {
+    width: 100%;
+    border-bottom: 1px solid var(--sub_color_white);
+}
+
 .header__inner {
-    margin: 0 auto;
     max-width: 1230px;
+    margin: 0 auto;
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* デフォルトは中央 */
+    position: relative;
 }
 
 .header__title {
-    color: #8c7a6a;
+    color: var(--main_color);
     font-size: 24px;
-    text-align: center;
 }
 
-.adminHeader__inner {
-    display: flex;
-    align-items: center;
-    position: relative;
-    height: 60px;
-}
-
-.adminHeader__title {
+.header__button {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
-    color: #8c7a6a;
-    font-size: 24px;
+    right: 15px;
 }
 
-.adminHeader__button {
-    margin-left: auto;
-    margin-right: 10%;
-    text-decoration: none;
-    text-align: center;
-}
-
-.link {
-    width: 80px;
-    height: 30px;
-    border: 1px solid #8c7a6a;
-    border-radius: 3px;
-    background: #f4f4f4;
-    color: #8c7a6a;
-    cursor: pointer;
+.header__button a,
+.header__button button {
+    border: 1px solid var(--main_color);
+    background: var(--sub_color_white);
+    color: var(--main_color);
     text-decoration: none;
 }
