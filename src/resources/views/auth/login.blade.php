@@ -19,10 +19,10 @@
 @endsection
 
 @section('main')
-<div class="register">
-    <div class="register-form__title">
+<div class="content">
+    <h2 class="content-title">
         Login
-    </div>
+    </h2>
     <div class="register-form">
         <form class="form" action="/login" method="post" novalidate>
             @csrf
@@ -35,7 +35,7 @@
                         <input type="email" name="email" value="{{ old('email') }}" />
                     </div>
                     @error('email')
-                    <ul class="form__error">
+                    <ul class="form-error">
                         <li>{{ $message }}</li>
                     </ul>
                     @enderror
@@ -50,13 +50,13 @@
                         <input type="password" name="password" />
                     </div>
                     @error('password')
-                    <ul class="form__error">
+                    <ul class="form-error">
                         <li>{{ $message }}</li>
                     </ul>
                     @enderror
                 </div>
             </div>
-            <div class="form__button">
+            <div class="form-button">
                 <button class="button button-submit" type="submit">ログイン</button>
             </div>
         </form>

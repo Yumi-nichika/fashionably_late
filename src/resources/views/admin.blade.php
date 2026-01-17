@@ -18,12 +18,12 @@
 @endsection
 
 @section('main')
-<div class="admin">
-    <div class="admin-form__title">
+<div class="content">
+    <h2 class="content-title">
         Admin
-    </div>
+    </h2>
 
-    <div class="admin-form">
+    <div class="content-form">
         <div class="admin-search">
             <form action="/search" method="GET">
                 @csrf
@@ -60,7 +60,7 @@
             <a href="{{ route('export', request()->query()) }}" class="button button-export">
                 エクスポート
             </a>
-            {{ $contacts->links() }}
+            {{ $contacts->onEachSide(3)->links() }}
         </div>
 
 
@@ -151,7 +151,7 @@
                 <p id="modalContent" style="white-space: pre-wrap;"></p>
             </div>
         </div>
-        <div class="form__button">
+        <div class="form-button">
             <form action="/delete" method="POST">
                 @csrf
                 <input type="hidden" id="id" name="id" value="">

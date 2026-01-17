@@ -9,12 +9,12 @@
 @endsection
 
 @section('main')
-<div class="contact-form">
-    <div class="contact-form__title">
+<div class="content">
+    <h2 class="content-title">
         Confirm
-    </div>
+    </h2>
 
-    <div class="form">
+    <div class="content-form">
         <div class="confirm-table">
             <table class="confirm-table__inner">
                 <tr class="confirm-table__row">
@@ -68,7 +68,7 @@
             </table>
         </div>
 
-        <div class="form__button">
+        <div class="form-button">
             <form action="/thanks" method="post">
                 @foreach($contact as $key => $value)
                 <input type="hidden" name="{{ $key }}" value="{{ $value }}">

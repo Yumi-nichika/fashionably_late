@@ -1,4 +1,4 @@
-.thankyou {
+.content {
     position: relative;
     min-height: 100vh;
     display: flex;
@@ -9,7 +9,7 @@
     text-align: center;
 }
 
-.thankyou__bg {
+.content-bg {
     position: absolute;
     inset: 0;
     display: flex;
@@ -20,20 +20,22 @@
     opacity: 0.08;
     pointer-events: none;
     z-index: 0;
+    font-family: "Charis SIL", serif;
 }
 
-.thankyou__text {
+.content-text {
     font-size: 24px;
     font-weight: bold;
     z-index: 1;
     margin-bottom: 40px;
 }
 
-.form__button {
+.form-button {
     z-index: 1;
 }
 
-.form__button a {
+.form-button a {
     background: var(--sub_color_brown);
     color: var(--sub_color_white);
+    font-family: "Charis SIL", serif;
 }

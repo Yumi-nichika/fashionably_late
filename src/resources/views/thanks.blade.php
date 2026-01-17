@@ -11,10 +11,10 @@
 </head>
 
 <body>
-    <main class="thankyou">
-        <div class="thankyou__bg">Thank you</div>
-        <p class="thankyou__text">お問い合わせありがとうございました</p>
-        <div class="form__button">
+    <main class="content">
+        <div class="content-bg">Thank you</div>
+        <p class="content-text">お問い合わせありがとうございました</p>
+        <div class="form-button">
             <a href="/" class="button">HOME</a>
         </div>
     </main>

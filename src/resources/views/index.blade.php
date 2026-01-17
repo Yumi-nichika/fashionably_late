@@ -9,12 +9,12 @@
 @endsection
 
 @section('main')
-<div class="contact-form">
-    <div class="contact-form__title">
+<div class="content">
+    <h2 class="content-title">
         Contact
-    </div>
+    </h2>
 
-    <form class="form" action="/confirm" method="post" novalidate>
+    <form class="content-form" action="/confirm" method="post" novalidate>
         @csrf
         <div class="form__group">
             <div class="form__group-title">
@@ -27,7 +27,7 @@
                     <input type="text" name="first_name" placeholder="例：太郎" value="{{ old('first_name', request('first_name')) }}" />
                 </div>
                 @if ($errors->has('last_name') || $errors->has('first_name'))
-                <ul class="form__error">
+                <ul class="form-error">
                     @error('last_name')
                     <li>{{ $message }}</li>
                     @enderror
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 @error('gender')
-                <ul class="form__error">
+                <ul class="form-error">
                     <li>{{ $message }}</li>
                 </ul>
                 @enderror
@@ -75,7 +75,7 @@
                     <input type="text" name="email" placeholder="例：test@example.com" value="{{ old('email', request('email')) }}" />
                 </div>
                 @error('email')
-                <ul class="form__error">
+                <ul class="form-error">
                     <li>{{ $message }}</li>
                 </ul>
                 @enderror
@@ -95,7 +95,7 @@
                     <input type="tel" name="telthree" placeholder="5678" value="{{ old('telthree', request('telthree')) }}" />
                 </div>
                 @if ($errors->has('telone') || $errors->has('teltwo') || $errors->has('telthree'))
-                <ul class="form__error">
+                <ul class="form-error">
                     @error('telone')
                     <li>{{ $message }}</li>
                     @enderror
@@ -119,7 +119,7 @@
                     <input type="text" name="address" placeholder="例：東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address', request('address')) }}" />
                 </div>
                 @error('address')
-                <ul class="form__error">
+                <ul class="form-error">
                     <li>{{ $message }}</li>
                 </ul>
                 @enderror
@@ -152,7 +152,7 @@
                     </select>
                 </div>
                 @error('category_id')
-                <ul class="form__error">
+                <ul class="form-error">
                     <li>{{ $message }}</li>
                 </ul>
                 @enderror
@@ -168,13 +168,13 @@
                     <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail', request('detail')) }}</textarea>
                 </div>
                 @error('detail')
-                <ul class="form__error">
+                <ul class="form-error">
                     <li>{{ $message }}</li>
                 </ul>
                 @enderror
             </div>
         </div>
-        <div class="form__button">
+        <div class="form-button">
             <button class="button button-submit" type="submit">確認画面</button>
         </div>
     </form>
