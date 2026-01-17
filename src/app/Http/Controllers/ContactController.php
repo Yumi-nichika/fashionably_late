@@ -9,12 +9,18 @@ use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
 {
+    /**
+     * 入力画面表示
+     */
     public function index()
     {
         $categories = Category::all();
         return view('index', compact('categories'));
     }
 
+    /**
+     * 確認画面表示
+     */
     public function confirm(ContactRequest $request)
     {
         $contact = $request->all();
@@ -22,6 +28,9 @@ class ContactController extends Controller
         return view('confirm', compact('contact', 'category'));
     }
 
+    /**
+     * お問い合わせ登録
+     */
     public function store(Request $request)
     {
         $contact = $request->all();

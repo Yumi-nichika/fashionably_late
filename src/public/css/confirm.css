@@ -75,11 +75,6 @@ textarea {
     margin-top: 40px;
 }
 
-.form__button-submit {
-    background: var(--sub_color_brown);
-    color: var(--sub_color_white);
-}
-
 .form__button-back {
     background-color: #fff;
     color: var(--sub_color_brown);

@@ -1,12 +1,11 @@
-.register {
+html {
     background-color: #f1ece6;
-    color: var(--main_color);
-    padding-top: 30px;
-    height: calc(100vh - 125px);
 }
 
 .register-form__title {
     text-align: center;
+    color: var(--main_color);
+    padding-top: 30px;
     font-size: 20px;
 }
 
@@ -29,6 +28,7 @@
 }
 
 .form__group-title {
+    color: var(--main_color);
     text-align: left;
 }
 
@@ -49,10 +49,4 @@ input[type="password"] {
     border-radius: 3px;
     appearance: none;
     color: var(--main_color);
-}
-
-.form__button-submit {
-    display: inline;
-    background: var(--sub_color_brown);
-    color: var(--sub_color_white);
 }

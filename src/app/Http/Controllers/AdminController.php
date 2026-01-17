@@ -43,7 +43,9 @@ class AdminController extends Controller
 
         // 性別
         if (!empty($target['gender'])) {
-            $main_query->where('gender', $target['gender']);
+            if ($target['gender'] != 0) {
+                $main_query->where('gender', $target['gender']);
+            }
         }
 
         // カテゴリ
@@ -63,7 +65,7 @@ class AdminController extends Controller
     }
 
     /**
-     * 削除
+     * お問い合わせ削除
      */
     public function remove(Request $request)
     {
@@ -95,12 +97,19 @@ class AdminController extends Controller
 
             // 性別
             if (!empty($target['gender'])) {
-                $main_query->where('gender', $target['gender']);
+                if ($target['gender'] != 0) {
+                    $main_query->where('gender', $target['gender']);
+                }
             }
 
             // カテゴリ
             if (!empty($target['category_id'])) {
                 $main_query->where('category_id', $target['category_id']);
+            }
+
+            // 日付（created_at）
+            if (!empty($target['created_at'])) {
+                $main_query->whereDate('created_at', $target['created_at']);
             }
         }
 
@@ -109,7 +118,7 @@ class AdminController extends Controller
         $response = new StreamedResponse(function () use ($contacts) {
             $handle = fopen('php://output', 'w');
             fwrite($handle, "\xEF\xBB\xBF");
-            
+
             // ヘッダー行
             fputcsv($handle, [
                 'お名前',

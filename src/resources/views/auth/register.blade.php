@@ -30,11 +30,11 @@
                     <div class="form__input--text">
                         <input type="text" name="name" value="{{ old('name') }}" />
                     </div>
-                    <div class="form__error">
-                        @error('name')
-                        {{ $message }}
-                        @enderror
-                    </div>
+                    @error('name')
+                    <ul class="form__error">
+                        <li>{{ $message }}</li>
+                    </ul>
+                    @enderror
                 </div>
             </div>
             <div class="form__group">
@@ -45,11 +45,11 @@
                     <div class="form__input--text">
                         <input type="email" name="email" value="{{ old('email') }}" />
                     </div>
-                    <div class="form__error">
-                        @error('email')
-                        {{ $message }}
-                        @enderror
-                    </div>
+                    @error('email')
+                    <ul class="form__error">
+                        <li>{{ $message }}</li>
+                    </ul>
+                    @enderror
                 </div>
             </div>
             <div class="form__group">
@@ -60,11 +60,11 @@
                     <div class="form__input--text">
                         <input type="password" name="password" />
                     </div>
-                    <div class="form__error">
-                        @error('password')
-                        {{ $message }}
-                        @enderror
-                    </div>
+                    @error('password')
+                    <ul class="form__error">
+                        <li>{{ $message }}</li>
+                    </ul>
+                    @enderror
                 </div>
             </div>
             <div class="form__button">
