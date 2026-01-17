@@ -9,23 +9,31 @@ coachtech お問い合わせフォーム
 ## Dockerビルド
 
 ### 1. Gitをクローン
-
-`git clone git@github.com:Yumi-nichika/fashionably_late.git`
+```cmd
+git clone git@github.com:Yumi-nichika/fashionably_late.git
+```
 
 ### 2. Dockerを起動
-
-`docker-compose up -d --build`
+```cmd
+docker-compose up -d --build
+```
 
 ## Laravel環境構築
 
 ### 1. PHPコンテナに入る
-`docker-compose exec php bash`
+```cmd
+docker-compose exec php bash
+```
 
 ### 2. コンポーザーをインストール
-`composer install`
+```cmd
+composer install
+```
 
 ### 3. .envファイルを作成
-`cp .env.example .env`
+```cmd
+cp .env.example .env
+```
 
 ### 4. .envファイルを編集
 ```env
@@ -36,15 +44,20 @@ DB_PASSWORD=laravel_pass
 ```
 
 ### 5. マイグレーションを実行
-`php artisan migrate`
+```cmd
+php artisan migrate
+```
 
 ### 6. シーダーを実行
 実行すると「categoriesテーブル」にカテゴリの初期値が、「contentsテーブル」にテストデータ35件が追加されます。
-
-`php artisan db:seed`
+```cmd
+php artisan db:seed
+```
 
 ### 7. アプリケーションの暗号化キーを生成
-`php artisan key:generate`
+```cmd
+php artisan key:generate
+```
 
 ### 8. アクセス
 下記「URL」にアクセスし、正常に表示されれば完了です。
