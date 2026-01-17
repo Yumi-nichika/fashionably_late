@@ -73,13 +73,13 @@
                 @foreach($contact as $key => $value)
                 <input type="hidden" name="{{ $key }}" value="{{ $value }}">
                 @endforeach
-                <button class="button form__button-submit" type="submit">送信</button>
+                <button class="button button-submit" type="submit">送信</button>
             </form>
             <form action="/" method="get">
                 @foreach($contact as $key => $value)
                 <input type="hidden" name="{{ $key }}" value="{{ $value }}">
                 @endforeach
-                <button class="button form__button-back" type="submit">修正</button>
+                <button class="button button-back" type="submit">修正</button>
             </form>
         </div>
     </div>

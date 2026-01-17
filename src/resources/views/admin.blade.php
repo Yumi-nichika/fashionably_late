@@ -51,7 +51,7 @@
                     <input type="date" name="created_at" value="{{ request('created_at') }}">
                     <span class="date-select__arrow">▼</span>
                 </div>
-                <button type="submit" class="button button-search">検索</button>
+                <button type="submit" class="button button-submit">検索</button>
             </form>
             <a class="button button-reset" href="/reset">リセット</a>
         </div>
@@ -155,7 +155,7 @@
             <form action="/delete" method="POST">
                 @csrf
                 <input type="hidden" id="id" name="id" value="">
-                <button type="submit" class="button form__button-delete">削除</button>
+                <button type="submit" class="button button-delete">削除</button>
             </form>
         </div>
     </div>

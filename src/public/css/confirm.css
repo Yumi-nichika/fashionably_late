@@ -75,7 +75,7 @@ textarea {
     margin-top: 40px;
 }
 
-.form__button-back {
+.button-back {
     background-color: #fff;
     color: var(--sub_color_brown);
     text-decoration: underline;

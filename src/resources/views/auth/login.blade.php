@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="form__button">
-                <button class="button form__button-submit" type="submit">ログイン</button>
+                <button class="button button-submit" type="submit">ログイン</button>
             </div>
         </form>
     </div>

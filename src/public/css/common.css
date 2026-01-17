@@ -20,7 +20,7 @@
     text-decoration: none;
 }
 
-.form__button-submit {
+.button-submit {
     display: inline;
     background: var(--sub_color_brown);
     color: var(--sub_color_white);
