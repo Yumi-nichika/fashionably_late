@@ -18,16 +18,12 @@ use App\Http\Controllers\AdminController;
 Route::get('/', [ContactController::class, 'index']);
 Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/thanks', [ContactController::class, 'store']);
-
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);
 });
-
 Route::get('/search', [AdminController::class, 'search']);
 Route::get('/reset', function () {
     return redirect('/admin');
 });
 Route::post('/delete', [AdminController::class, 'remove']);
-
-Route::get('/export', [AdminController::class, 'export'])
-    ->name('export');
+Route::get('/export', [AdminController::class, 'export'])->name('export');

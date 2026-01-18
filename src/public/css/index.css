@@ -22,6 +22,7 @@
 .form__input--radio {
     display: flex;
     gap: 30px;
+    appearance: none;
 }
 
 .form__input--select {
@@ -52,6 +53,10 @@
     -moz-appearance: none;
 }
 
+.form__input--textarea textarea {
+    height: 180px;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -67,14 +72,6 @@ textarea {
 
 input[type="radio"] {
     accent-color: var(--main_color);
-}
-
-.form__input--textarea textarea {
-    height: 180px;
-}
-
-.form__input--radio {
-    appearance: none;
 }
 
 .form-button {

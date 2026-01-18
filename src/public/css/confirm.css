@@ -36,17 +36,17 @@
     border-bottom: 1px solid var(--sub_color_white);
 }
 
-.confirm-table__row:last-child .confirm-table__header,
-.confirm-table__row:last-child .confirm-table__text {
-    border-bottom-width: 0;
-}
-
 input[type="text"],
 input[type="email"],
 input[type="tel"],
 textarea {
     appearance: none;
     color: var(--main_color);
+}
+
+.confirm-table__row:last-child .confirm-table__header,
+.confirm-table__row:last-child .confirm-table__text {
+    border-bottom-width: 0;
 }
 
 .form-button {

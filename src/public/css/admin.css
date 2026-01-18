@@ -1,3 +1,4 @@
+/* 検索フォーム */
 .admin-search {
     display: flex;
     gap: 12px;
@@ -8,54 +9,6 @@
     display: flex;
     align-items: center;
     gap: 12px;
-}
-
-.admin-operation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.admin-table {
-    margin-top: 30px;
-    border: 1px solid var(--sub_color_white);
-}
-
-.admin-table__inner {
-    width: 100%;
-}
-
-.admin-table__inner thead tr {
-    border-bottom: 1px solid var(--sub_color_white);
-    background-color: #baa899;
-    color: var(--sub_color_white);
-}
-
-.admin-table__inner thead th {
-    padding: 15px 0;
-}
-
-.admin-table__inner tbody tr:hover {
-    background-color: var(--sub_color_white);
-}
-
-.admin-table__text {
-    padding: 15px;
-    border-bottom: 1px solid var(--sub_color_white);
-    text-align: center;
-}
-
-.admin-table__text input {
-    width: 100%;
-    outline: none;
-    border: none;
-    font-size: 16px;
-}
-
-.admin-table__row:last-child .admin-table__header,
-.admin-table__row:last-child .admin-table__text {
-    border-bottom-width: 0;
 }
 
 .form__input--select {
@@ -75,7 +28,8 @@
 }
 
 .form__input--select select {
-    padding: 10px;
+    min-width: 100px;
+    padding: 10px 28px 10px 10px;
     background-color: var(--sub_color_white);
     border: 1px solid var(--sub_color_white);
     border-radius: 3px;
@@ -83,30 +37,11 @@
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    min-width: 100px;
-    padding: 10px 28px 10px 10px;
 }
 
 .form__input--date {
     position: relative;
     display: inline-block;
-}
-
-.form__input--date input[type="date"] {
-    appearance: none;
-    -webkit-appearance: none;
-    padding-right: 28px;
-    padding: 10px;
-    width: 200px;
-    background-color: var(--sub_color_white);
-    border: 1px solid var(--sub_color_white);
-    border-radius: 3px;
-    appearance: none;
-    color: var(--main_color);
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    opacity: 0;
 }
 
 .date-select__arrow {
@@ -129,21 +64,39 @@ input[type="text"] {
     color: var(--main_color);
 }
 
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 28px;
+    padding: 10px;
+    width: 150px;
+    background-color: var(--sub_color_white);
+    border: 1px solid var(--sub_color_white);
+    border-radius: 3px;
+    appearance: none;
+    color: var(--main_color);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
 .button-reset {
     background: #d9c6b5;
     color: var(--sub_color_white);
 }
 
+/* 操作ボタン */
+.admin-operation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
 .button-export {
     background: #edeae6;
     color: var(--sub_color_brown);
-}
-
-.button-detail {
-    display: inline;
-    border: 1px solid var(--main_color);
-    background-color: #fff;
-    color: var(--main_color);
 }
 
 .pagination {
@@ -185,6 +138,56 @@ input[type="text"] {
     cursor: not-allowed;
 }
 
+/* 一覧 */
+.admin-table {
+    margin-top: 30px;
+    border: 1px solid var(--sub_color_white);
+}
+
+.admin-table__inner {
+    width: 100%;
+}
+
+.admin-table__inner thead tr {
+    border-bottom: 1px solid var(--sub_color_white);
+    background-color: #baa899;
+    color: var(--sub_color_white);
+}
+
+.admin-table__inner thead th {
+    padding: 15px 0;
+}
+
+.admin-table__inner tbody tr:hover {
+    background-color: var(--sub_color_white);
+}
+
+.admin-table__text {
+    padding: 15px;
+    border-bottom: 1px solid var(--sub_color_white);
+    text-align: center;
+}
+
+.admin-table__text input {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 16px;
+}
+
+.admin-table__row:last-child .admin-table__header,
+.admin-table__row:last-child .admin-table__text {
+    border-bottom-width: 0;
+}
+
+.button-detail {
+    display: inline;
+    border: 1px solid var(--main_color);
+    background-color: #fff;
+    color: var(--main_color);
+}
+
+/* 詳細モーダル */
 .modal {
     display: none;
     position: fixed;
